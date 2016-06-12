@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <filter>
+        <filter-name>BasicAuthFilter</filter-name>
+        <filter-class>filter.BasicAuthFilter</filter-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>motdepasse</param-value>
+        </init-param>
+    </filter>
+    
+    <filter>
+        <filter-name>LogOutFilter</filter-name>
+        <filter-class>filter.LogOutFilter</filter-class>        
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>BasicAuthFilter</filter-name>
+        <url-pattern>/kurier/testSec</url-pattern>
+    </filter-mapping>
+    
+     <filter-mapping>
+        <filter-name>LogOutFilter</filter-name>
+        <url-pattern>/kurier/logout</url-pattern>
+    </filter-mapping>
+</web-app>
